@@ -1,0 +1,2442 @@
+:root {
+  --bg: #f9f9fb;
+  --ink: #3e3e47;
+  --ink-soft: #4b4b57;
+  --ink-faint: #6b6b76;
+  --dark: #15152e;
+  --card: #ffffff;
+  --funnel-fill: #dde0e5;
+  --funnel-stroke: #cccccc;
+  --radius-card: 24px;
+  --font: "DM Sans", "Poppins", -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+}
+
+/* Page container.
+   Zeplin reference ("Desktop Landing Page", 1440px artboard): every page-level block
+   runs from x=80 to x=1360 — a 1280px content column with an 80px gutter from each
+   screen edge (header brand at x=80, header CTA right edge at x=1360, offer card
+   80..1360, footer content 80..1360).
+   The gutter is FIXED (not a 1440px max-width), so on screens wider than 1440 the
+   content column grows with the viewport and the edge -> content spacing stays exactly
+   the design's 80px. */
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+/* Dark pill CTA used in header + hero */
+.cta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #05081b;
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  font-family: var(--font);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cta-pill__avatar {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.cta-pill--header {
+  height: 64px;
+  padding: 0 24px;
+  font-size: 18px;
+  font-weight: 700;
+  background: #05081b;
+  border-radius: 32px;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 24px 0;
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand__logo {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+}
+
+.brand__name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+  letter-spacing: 0;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 150px;
+}
+
+.hero__title {
+  max-width: 968px;
+  font-size: 36px;
+  line-height: 44px;
+  font-weight: 600;
+  color: #333333;
+  letter-spacing: 0;
+}
+
+.hero__sub {
+  max-width: 772px;
+  margin-top: 24px;
+  font-size: 18px;
+  line-height: 28px;
+  color: #000000;
+}
+
+.hero .cta-pill--hero {
+  margin-top: 32px;
+}
+
+/* ---------- Funnel card ---------- */
+/* Desktop funnel card: fixed width, centered horizontally via auto margins */
+.funnel-card {
+  width: 860px;
+  max-width: 100%;
+  margin: 50px auto 0;
+  background: #ffffff;
+  border: none;
+  border-radius: 48px;
+  box-shadow: -4px 4px 42px rgba(179, 179, 179, 0.24);
+  padding: 80px 66px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.funnel-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  position: relative;
+}
+
+.funnel-line {
+  position: absolute;
+  top: 16px;
+  bottom: 16px;
+  left: 50%;
+  width: 1px;
+  background: #666666;
+  transform: translateX(-50%);
+}
+
+.funnel-svg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.funnel-step {
+  position: relative;
+  z-index: 2;
+}
+
+.funnel-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  line-height: 36px;
+  color: #000000;
+  z-index: 3;
+}
+
+/* ---------- Section title ---------- */
+.section-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 600;
+  color: #1e1e1e;
+  letter-spacing: 0;
+  line-height: 44px;
+}
+
+.section-title--light {
+  color: #ffffff;
+}
+
+/* ---------- Letter ---------- */
+.letter {
+  background: var(--bg);
+  color: var(--ink);
+  padding-top: 50px;
+  padding-bottom: 58px;
+}
+
+.letter__wrap {
+  position: relative;
+  max-width: 920px;
+  margin: 64px auto 0;
+}
+
+.letter__pin {
+  position: absolute;
+  top: -20px;
+  left: -27px;
+  width: 68px;
+  height: 68px;
+  z-index: 2;
+}
+
+.letter__card {
+  background: var(--card);
+  border-radius: 24px;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.25);
+  padding: 56px;
+}
+
+.letter__card p {
+  font-size: 18px;
+  line-height: 28px;
+  color: #000000;
+}
+
+.letter__card p + p {
+  margin-top: 0;
+}
+
+.letter__block + .letter__block {
+  margin-top: 32px;
+}
+
+.letter__card strong {
+  color: #000000;
+  font-weight: 700;
+}
+
+/* ---------- CTA pill (hero variant) ---------- */
+.cta-pill--hero {
+  height: 64px;
+  padding: 0 24px;
+  font-size: 18px;
+  font-weight: 700;
+  background: #05081b;
+  border-radius: 32px;
+}
+
+.cta-pill__avatar--header {
+  width: 32px;
+  height: 32px;
+}
+
+.cta-pill__avatar--hero {
+  width: 32px;
+  height: 32px;
+}
+
+/* ---------- Letter (continued) ---------- */
+.letter__gap {
+  margin-top: 36px;
+}
+
+.letter__sign {
+  width: 239px;
+  margin-top: 24px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid #666666;
+}
+
+.letter__sign img {
+  width: 148px;
+  height: auto;
+}
+
+/* ---------- Career page showcase ---------- */
+.showcase {
+  background: #ffffff;
+  padding: 50px 0 0;
+}
+
+.showcase .section-title {
+  color: #333333;
+  max-width: 699px;
+  margin: 0 auto;
+}
+
+.showcase__sub {
+  max-width: 699px;
+  margin: 8px auto 0;
+  text-align: center;
+  font-size: 18px;
+  line-height: 28px;
+  color: #333333;
+}
+
+.showcase__monitor {
+  width: 940px;
+  max-width: 100%;
+  margin: 96px auto 0;
+}
+
+.showcase__monitor img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- Candidate questions (inside showcase) ---------- */
+.questions {
+  padding: 0;
+  margin-top: 96px;
+}
+
+/* Zeplin: the questions block is flush with the page container (its sub-heading sits at
+   absolute x = 81), so it uses the standard .container gutter — no extra inset.
+   Columns 648 + 551 with an 81px gap = 1280px, exactly the container width. */
+.questions__grid {
+  display: grid;
+  grid-template-columns: 648fr 551fr;
+  gap: 81px;
+  align-items: start;
+}
+
+.questions__title {
+  max-width: 648px;
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 600;
+  color: #1e1e1e;
+  letter-spacing: 0;
+  text-align: left;
+}
+
+.questions__text {
+  max-width: 517px;
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 28px;
+  color: #000000;
+  text-align: left;
+}
+
+.questions__list {
+  list-style: none;
+}
+
+.questions__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 18px;
+  line-height: 28px;
+  color: #000000;
+}
+
+.questions__item + .questions__item {
+  margin-top: 16px;
+}
+
+.questions__check {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  margin-top: 2px;
+}
+
+/* ---------- Shared: badge + section sub ---------- */
+.badge-row {
+  text-align: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 16px;
+  background: #05081b;
+  color: #ffffff;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Desktop pill badge (use case header) */
+.pill--sm {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 16px;
+  background: #05081b;
+  color: #ffffff;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.section-sub {
+  max-width: 760px;
+  margin: 16px auto 0;
+  text-align: center;
+  font-size: 18px;
+  line-height: 28px;
+  color: #1e1e1e;
+}
+
+.section-sub--light {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.section-sub--light strong {
+  color: #ffffff;
+}
+
+.section-sub strong {
+  color: #000000;
+  font-weight: 700;
+}
+
+/* ---------- Use case journey ---------- */
+.usecase {
+  background: #ffffff;
+  padding: 72px 0;
+}
+
+.usecase__header {
+  text-align: center;
+}
+
+.usecase .section-title {
+  color: #000000;
+}
+
+/* Desktop / Mobile toggles */
+.usecase__desktop { display: block; }
+.usecase__mobile  { display: none; }
+
+.hero__funnel-desktop {
+  width: 100%;
+}
+
+.usecase__phones {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 67px;
+}
+
+/* Phone mockup frame */
+.phone-mockup {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.phone-mockup__frame {
+  position: relative;
+  /* Desktop phone = the Zeplin DEVICE box: 172 x 348 (node 12957:6473).
+     That is the 154.1 x 332.6 screen plus a 9px bezel left/right and a
+     7.7px bezel top/bottom. The 344x698 bezel-complete mockup images fill
+     the whole frame, so all three phones share these exact measurements. */
+  width: 172px;
+  height: 348px;
+  border-radius: 24px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.phone-mockup__screen {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
+
+.usecase__timeline {
+  position: relative;
+  height: 32px;
+  margin-top: 24px;
+}
+
+.usecase__timeline-line {
+  position: absolute;
+  top: 50%;
+  height: 3px;
+  background: #000000;
+  transform: translateY(-50%);
+}
+
+.usecase__dot {
+  position: absolute;
+  top: 50%;
+  width: 32px;
+  height: 32px;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  background: #ffffff;
+  transform: translate(-50%, -50%);
+}
+
+.usecase__dot--filled {
+  background: #000000;
+}
+
+.usecase__cols {
+  display: grid;
+  grid-template-columns: 39.5% 39.7% 1fr;
+  margin-top: 48px;
+}
+
+.usecase__col {
+  min-width: 0;
+}
+
+.usecase__col:nth-child(1) { max-width: 279px; }
+.usecase__col:nth-child(2) { max-width: 305px; }
+.usecase__col:nth-child(3) { max-width: 267px; }
+
+.usecase__col h4 {
+  font-family: "DM Sans", sans-serif;
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 600;
+  color: #1e1e1e;
+  letter-spacing: 0;
+}
+
+.usecase__col p {
+  margin-top: 8px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  color: #1e1e1e;
+}
+
+/* Mid-width adaptation: shrink phones & type so everything stays inside the viewport */
+@media (max-width: 1180px) and (min-width: 769px) {
+  .phone-mockup__frame {
+    /* keep the 172 : 348 device proportion when the row has to shrink
+       (screen area stays ~136 x 293.5, bezel scales with it) */
+    width: 152px;
+    height: 307.5px;
+  }
+
+  .usecase__phones {
+    margin-top: 40px;
+  }
+
+  .usecase__col h4 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .usecase__col p {
+    font-size: 15px;
+    line-height: 23px;
+  }
+}
+
+/* ---------- Testimonial (inside showcase) ---------- */
+.testimonial {
+  background: var(--bg);
+  padding: 100px 180px;
+  margin-top: 65px;
+}
+
+.testimonial .container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.testimonial .section-title {
+  color: #333333;
+}
+
+.testimonial__card {
+  max-width: 1080px;
+  margin: 56px auto 0;
+  background: var(--card);
+  border-radius: 24px;
+  box-shadow: -4px 4px 42px rgba(179, 179, 179, 0.24);
+  padding: 32px 48px;
+  text-align: center;
+}
+
+.testimonial__quote {
+  max-width: 984px;
+  margin: 0 auto;
+  font-size: 20px;
+  line-height: 30px;
+  color: #000000;
+}
+
+.testimonial__quote strong {
+  color: #000000;
+  font-weight: 700;
+}
+
+.testimonial__avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  object-fit: cover;
+  margin: 10px auto 0;
+}
+
+.testimonial__name {
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.testimonial__role {
+  margin-top: 4px;
+  font-size: 18px;
+  line-height: 28px;
+  color: #000000;
+}
+
+/* ---------- Research / stats ---------- */
+.research {
+  background: var(--bg);
+  color: var(--ink);
+  padding: 62px 0;
+}
+
+.research .section-sub {
+  margin-top: 24px;
+}
+
+.research__card {
+  margin-top: 42px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: -4px 4px 42px rgba(179, 179, 179, 0.24);
+  padding: 48px;
+}
+
+.research__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 115px;
+  align-items: start;
+}
+
+.stat {
+  --stat-gap: 12px;
+  display: flex;
+  gap: var(--stat-gap);
+  align-items: flex-start;
+}
+
+.stat__rail {
+  position: relative;
+  flex: 0 0 2px;
+  width: 2px;
+  background: #e0e0e0;
+  align-self: stretch;
+}
+
+.stat__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.stat__num {
+  font-family: "DM Sans", sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 44px;
+  color: #000000;
+}
+
+.stat__body {
+  position: relative;
+  margin-top: 24px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  color: #4f4f4f;
+}
+
+.stat__body::before {
+  content: "";
+  position: absolute;
+  /* Sit exactly on top of the 2px grey rail: rail width + flex gap to the left of the body */
+  left: calc((var(--stat-gap) + 2px) * -1);
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: #000000;
+}
+
+.stat__source {
+  margin-top: 24px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  color: #4f4f4f;
+}
+
+.stat__link {
+  display: inline-block;
+  margin-top: 4px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  color: #4f4f4f;
+}
+
+/* ---------- Candidate interviews ---------- */
+.interviews {
+  background: var(--bg);
+  color: var(--ink);
+  padding: 50px 0;
+}
+
+.badge-row--left {
+  text-align: left;
+}
+
+.section-title--left {
+  text-align: left !important;
+}
+
+.section-title--light {
+  color: #ffffff;
+}
+
+.interviews__sub {
+  max-width: 776px;
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 28px;
+  color: #1e1e1e;
+}
+
+.quote-cards {
+  max-width: 980px;
+  margin: 96px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.quote-card {
+  --quote-gap: 16px;
+  display: flex;
+  gap: var(--quote-gap);
+  align-items: center;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: -4px 4px 42px rgba(179, 179, 179, 0.24);
+  padding: 16px 24px;
+}
+
+.quote-card:first-child {
+  border-radius: 16px;
+}
+
+.quote-card__rail {
+  position: relative;
+  flex: 0 0 2px;
+  width: 2px;
+  height: 149px;
+  background: #e0e0e0;
+  align-self: center;
+}
+
+.quote-card__content {
+  flex: 1;
+  min-width: 0;
+  padding: 18px 0;
+}
+
+.quote-card__quote {
+  position: relative;
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  color: #000000;
+}
+
+/* Black bar anchored to the comment text (same pattern as the research stats):
+   it always spans exactly the quote's rendered height at any width and sits on
+   top of the 2px grey rail (rail width + flex gap to the left of the quote). */
+.quote-card__quote::before {
+  content: "";
+  position: absolute;
+  left: calc((var(--quote-gap) + 2px) * -1);
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, #0d182e 0%, #2f3c5e 100%);
+}
+
+.quote-card__quote strong {
+  color: #000000;
+  font-weight: 600;
+}
+
+.quote-card__person {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.quote-card__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1.5px solid #dde0e5;
+}
+
+.quote-card__name {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  color: #000000;
+}
+
+/* ---------- Story ---------- */
+.story {
+  background: #ffffff;
+  padding: 50px 0;
+}
+
+.story__grid {
+  display: grid;
+  grid-template-areas:
+    "head photo"
+    "text photo";
+  grid-template-columns: 739fr 462fr;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.story__head {
+  grid-area: head;
+}
+
+.story .section-title {
+  /* Desktop design measure; the mobile block tightens this to 316px. */
+  max-width: 481px;
+}
+
+.story__text {
+  max-width: 739px;
+  margin-top: 24px;
+}
+
+.story__text p {
+  font-size: 18px;
+  line-height: 28px;
+  color: #1e1e1e;
+}
+
+.story__text p + p {
+  margin-top: 28px;
+}
+
+.story__photo {
+  grid-area: photo;
+  width: 100%;
+  max-width: 462px;
+  height: auto;
+  margin-top: 36px;
+  border-radius: 29px;
+  object-fit: cover;
+}
+
+/* ---------- Behind the page ---------- */
+.behind {
+  background: var(--bg);
+  color: var(--ink);
+  padding: 50px 0;
+}
+
+.behind .section-title {
+  margin-top: 16px;
+}
+
+.behind__sub {
+  margin-top: 8px;
+  font-size: 18px;
+  line-height: 28px;
+  color: #1e1e1e;
+}
+
+.steps-card {
+  max-width: 932px;
+  margin: 96px auto 0;
+  background: transparent;
+  border-radius: 32px;
+  box-shadow: -4px 4px 42px rgba(179, 179, 179, 0.24);
+  padding: 0;
+  overflow: hidden;
+}
+
+.step {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  background: #ffffff;
+}
+
+.step + .step {
+  border-top: 1px solid #cccccc;
+}
+
+.step:first-child {
+  border-radius: 32px 32px 0 0;
+  padding-top: 32px;
+}
+
+.step:last-child {
+  border-radius: 0 0 32px 32px;
+  padding-bottom: 32px;
+}
+
+.step__num {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  margin-top: 1px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #05081b;
+  color: #ffffff;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.step__title {
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 600;
+  color: #1e1e1e;
+  letter-spacing: 0;
+}
+
+.step__text {
+  max-width: 825px;
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 28px;
+  color: #333333;
+}
+
+.step:first-child .step__text {
+  margin-top: 8px;
+}
+
+/* ---------- Is this for you? ---------- */
+.fit {
+  background: #ffffff;
+  padding: 50px 0;
+}
+
+.fit__card {
+  max-width: 1166px;
+  margin: 72px auto 0;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: -4px 4px 42px rgba(179, 179, 179, 0.24);
+  overflow: hidden;
+}
+
+.fit__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.fit__row + .fit__row {
+  border-top: 1px solid #cccccc;
+}
+
+.fit__cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 24px;
+  font-size: 18px;
+  line-height: 28px;
+  color: #000000;
+}
+
+.fit__cell + .fit__cell {
+  border-left: 1px solid #cccccc;
+}
+
+.fit__row:last-child .fit__cell {
+  padding-bottom: 24px;
+}
+
+.fit__head {
+  font-size: 24px !important;
+  line-height: 26px !important;
+  font-weight: 600 !important;
+  color: #000000 !important;
+  gap: 10px !important;
+  padding: 16px 24px !important;
+}
+
+.fit__icon {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+}
+
+.fit__icon--green {
+  color: #00a264;
+}
+
+.fit__icon--red {
+  color: #ff383c;
+}
+
+/* ---------- Offer ---------- */
+.offer {
+  background: var(--bg);
+  color: var(--ink);
+  padding: 50px 0;
+}
+
+.offer__card {
+  background: var(--card);
+  border-radius: 24px;
+  box-shadow: -4px 4px 42px rgba(179, 179, 179, 0.24);
+  padding: 50px 324px;
+  text-align: center;
+}
+
+.offer__card .section-title {
+  margin-top: 4px;
+}
+
+.offer__sub {
+  max-width: 684px;
+  margin: 16px auto 0;
+  font-size: 18px;
+  line-height: 28px;
+  color: #1e1e1e;
+}
+
+.cta-pill--offer {
+  height: 64px;
+  margin-top: 48px;
+  padding: 0 24px;
+  font-size: 18px;
+}
+
+.cta-pill__avatar--offer {
+  width: 32px;
+  height: 32px;
+}
+
+/* ---------- Footer (Zeplin "footer" group: 1440 x 473, black, top radius 35/24) ---------- */
+.footer {
+  margin-top: 0;
+  background: #000000;
+  border-radius: 35px 24px 0 0;
+  color: #ffffff;
+}
+
+/* Content area — 1440 x 397: 100px vertical padding around a 1280px row
+   (brand column left, contact column hugging the right gutter) */
+.footer__main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  min-height: 397px;
+}
+
+/* Brand column — 415px wide, 24px between the mark block and the tagline */
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 415px;
+}
+
+/* Logo + wordmark, left aligned, 11px apart */
+.footer__brandmark {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 11px;
+}
+
+.footer__logo {
+  display: block;
+  width: 62px;
+  height: 62px;
+}
+
+.footer__name {
+  font-size: 24px;
+  line-height: 26px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.footer__tagline {
+  font-size: 18px;
+  line-height: 28px;
+  color: #ffffff;
+}
+
+/* Contact column — starts 29px below the top of the logo, 16px rhythm.
+   The column hugs the right gutter, so its width decides where every child starts:
+   pinning it to Zeplin's 181px frame keeps the icons and the "Contact" heading on
+   x=1179 even when a row's own icon→label spacing changes. */
+.footer__contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 29px;
+  min-width: 181px;
+}
+
+.footer__contact h3 {
+  font-size: 24px;
+  line-height: 26px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.footer__row {
+  display: flex;
+  /* Zeplin's row frame tops/bottoms its children, which leaves the icon sitting
+     off the words — centre it on the text line instead. */
+  align-items: center;
+  /* Both rows put the label 8px after the same 24px icon frame, so "tg@chaakre.com"
+     and "LinkedIn" start on one x (this is Zeplin's LinkedIn-row gap; the email
+     row's 16px pushed its label 8px further right). */
+  gap: 8px;
+  font-size: 18px;
+  line-height: 28px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* A flex-centred icon lands on the line-box centre. For "tg@chaakre.com" that is
+   ~1px above the optical centre of the words, because the descender of the "g"
+   drags the ink band down — so that icon gets a 1px shove down to match. */
+.footer__icon,
+.footer__arrow {
+  transform: translateY(1px);
+}
+
+/* "LinkedIn" has no descender: its ink band starts at the cap top and ends on the
+   baseline, i.e. a full ~1px higher on the line than the email address. Reusing the
+   +1px shove there left the badge (and the ↗) sitting ~1.5px below the word on
+   desktop and ~1.75px on mobile. Both rows share one baseline, so the fix is to drop
+   the shove for this row instead of moving its label off the shared line; the
+   remaining half pixel lifts the badge onto the caps band of the word, the same
+   ~0.5px-above-the-ink-centre the mail icon carries for x-height centring. */
+.footer__row--linkedin .footer__icon,
+.footer__row--linkedin .footer__arrow {
+  transform: translateY(-0.5px);
+}
+
+.footer__row:hover {
+  text-decoration: underline;
+}
+
+.footer__row--linkedin {
+  align-items: center;
+  gap: 8px;
+}
+
+.footer__row--linkedin span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.footer__icon {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+}
+
+.footer__arrow {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+}
+
+/* Copyright bar — 1440 x 76: 1px #cccccc rule (inset so it does not add height,
+   exactly like the design's centre-positioned border), 24px / 80px padding, 8px gap */
+.footer__bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 24px 80px;
+  box-shadow: inset 0 1px 0 #cccccc;
+  font-size: 18px;
+  line-height: 28px;
+  color: #ffffff;
+}
+
+.mobile-menu {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  background: #000000;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* ---------- Shared mobile-visible helpers ---------- */
+.mobile-mail {
+  display: none;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+/* Desktop-only / Mobile-only toggles */
+.hero__cta-desktop { display: block; }
+.hero__cta-mobile  { display: none; }
+.hero__funnel-desktop { display: block; }
+.hero__funnel-mobile  { display: none; }
+
+/* ---------- Mobile ≤ 768px – ACECURVE match ---------- */
+@media (max-width: 768px) {
+  /* ---- reset ---- */
+  /* Page container on phones.
+     Zeplin "Mobile Chaakre Landing Page" (402px artboard): the page content runs
+     x20 → x382 — a 20px gutter from each screen edge (mobile header row padding
+     16px 20px, fit table columns starting at x20, footer copyright row at x20).
+     Every section uses this one gutter; the per-section insets were removed. */
+  .container {
+    padding: 0 20px;
+  }
+
+  /* Desktop-only / Mobile-only toggles */
+  .hero__cta-desktop { display: none; }
+  .hero__cta-mobile {
+    display: block;
+    width: 100%;
+    margin-top: 24px;
+  }
+  .hero__funnel-desktop { display: none; }
+  .hero__funnel-mobile {
+    display: block;
+    width: 100%;
+  }
+
+  /* ---- Header ---- */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding: 16px 0;
+    background: rgba(249, 249, 251, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .brand__logo {
+    width: 38px;
+    height: 38px;
+  }
+
+  .brand__name {
+    font-size: 18px;
+    line-height: 27px;
+    color: #000000;
+  }
+
+  .cta-pill--header {
+    display: none;
+  }
+
+  .mobile-mail {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-mail img {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* ---- Hero ---- */
+  .hero {
+    background: var(--bg);
+    color: var(--ink);
+  }
+
+  .hero__inner {
+    padding: 32px 20px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero__title {
+    font-family: "DM Sans", sans-serif;
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: 600;
+    color: #1e1e1e;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .hero__sub {
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #1e1e1e;
+    max-width: 100%;
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  .hero__cta-wrap {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .cta-btn {
+    display: flex;
+    width: 100%;
+    height: 56px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 999px;
+    background: #000000;
+    color: var(--bg);
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .cta-btn:hover {
+    opacity: 0.9;
+  }
+
+  .cta-btn__avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  /* ---- Funnel card (SVG) ---- */
+  .funnel-card {
+    width: 100%;
+    margin-top: 48px;
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: -4px 4px 42px rgba(179, 179, 179, 0.24);
+    padding: 32px 66px;
+  }
+
+  /* Mobile Zeplin design: steps are 32px apart and labels are 16px/24px
+     (the Interview label stays 14px, set inline in Hero.tsx) */
+  .funnel-inner {
+    gap: 32px;
+  }
+
+  .funnel-label {
+    line-height: 24px;
+  }
+
+  /* ---- Pill / badge ---- */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: #05081b;
+    color: #ffffff;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 600;
+  }
+
+  .pill--sm {
+    padding: 4px 8px;
+    font-size: 10px;
+    line-height: 16px;
+    height: auto;
+  }
+
+  .pill--lg {
+    padding: 8px 16px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  /* ---- Section titles / subs ---- */
+  .section-title {
+    font-family: "DM Sans", sans-serif;
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: 600;
+    color: #1e1e1e;
+    text-align: center;
+  }
+
+  /* Journey title renders in #333 on the mobile design (overrides desktop #000) */
+  .usecase .section-title {
+    color: #333333;
+  }
+
+  .section-sub {
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #1e1e1e;
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  .badge-row {
+    text-align: center;
+    /* The badge is an inline-flex box, so the row's line strut added ~0.8px of
+       descender space below it. Zeplin's badge→title gaps are whole numbers
+       (e.g. 24px badge + 16px gap), so zero the strut to land on them exactly. */
+    line-height: 0;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    height: auto;
+    padding: 4px 8px;
+    background: #05081b;
+    color: #ffffff;
+    border-radius: 999px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 16px;
+  }
+
+  /* Offer / Behind the Page badges keep the larger 14px/20px label of the design */
+  .offer__card .badge,
+  .behind .badge {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .fit .badge {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 8px 16px;
+  }
+
+  /* ---- Letter ---- */
+  .letter {
+    padding: 40px 0 50px;
+  }
+
+  .letter__wrap {
+    position: relative;
+    max-width: 100%;
+    margin-top: 48px;
+  }
+
+  .letter__pin {
+    width: 32px;
+    height: 32px;
+    left: -9px;
+    top: -8px;
+  }
+
+  .letter__card {
+    background: var(--card);
+    border-radius: 24px;
+    box-shadow: -4px 4px 42px rgba(179, 179, 179, 0.24);
+    padding: 24px 11px;
+  }
+
+  .letter__card p + p {
+    margin-top: 18px;
+  }
+
+  .letter__block + .letter__block {
+    margin-top: 18px;
+  }
+
+  .letter__card p {
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    line-height: 26px;
+    color: #000000;
+  }
+
+  .letter__sign {
+    width: 120px;
+    margin-top: 20px;
+    border-bottom: none;
+  }
+
+  .letter__sign img {
+    width: 120px;
+    height: 43px;
+  }
+
+  /* ---- Showcase / InterviewCase ---- */
+  .showcase {
+    margin-top: 0;
+    padding: 0;
+    background: var(--bg);
+  }
+
+  .showcase__sub {
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    max-width: 100%;
+    margin-top: 16px;
+  }
+
+  .showcase__monitor {
+    width: 100%;
+    max-width: 340px;
+    margin: 24px auto 0;
+  }
+
+  /* ---- Questions (inside showcase on mobile) ---- */
+  .questions {
+    padding: 24px 0 0;
+    background: transparent;
+    margin-top: 0;
+  }
+
+  .questions__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .questions__title {
+    font-family: "DM Sans", sans-serif;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+    color: #1e1e1e;
+  }
+
+  .questions__text {
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+    margin-top: 16px;
+  }
+
+  .questions__list {
+    margin-top: 24px;
+  }
+
+  .questions__item {
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    gap: 12px;
+  }
+
+  .questions__item + .questions__item {
+    margin-top: 16px;
+  }
+
+  /* ---- Testimonial / ConversionQuote ---- */
+  .testimonial {
+    padding: 0 0 16px;
+    background: transparent;
+    margin-top: 65px;
+  }
+
+  /* The global (desktop) `.testimonial .container` rule sets padding: 0 for the 1080px
+     column; on phones the card must still respect the design's 20px page gutter. */
+  .testimonial .container {
+    padding: 0 20px;
+  }
+
+  .testimonial__card {
+    margin-top: 32px;
+    padding: 16px;
+    border-radius: 24px;
+    box-shadow: -4px 4px 42px rgba(179, 179, 179, 0.24);
+  }
+
+  .testimonial__quote {
+    font-family: "DM Sans", sans-serif;
+    font-size: 15.5px;
+    line-height: 24px;
+    color: #000000;
+  }
+
+  .testimonial__avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    margin: 24px auto 0;
+  }
+
+  .testimonial__name {
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    margin-top: 16px;
+  }
+
+  .testimonial__role {
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    line-height: 22px;
+    color: #000000;
+    margin-top: 4px;
+  }
+
+  /* ---- UseCase / HiringJourney ---- */
+  .usecase {
+    padding: 32px 0;
+    background: #ffffff;
+  }
+
+  .usecase__header {
+    text-align: center;
+  }
+
+  /* Desktop / Mobile toggles */
+  .usecase__desktop { display: none; }
+  .usecase__mobile  { display: block; }
+
+  .journey-wrap {
+    margin: 58px 0 0 0;
+    position: relative;
+  }
+
+  .journey-timeline {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 865px;
+    width: 16px;
+  }
+
+  .journey-dot {
+    position: absolute;
+    left: 0;
+    z-index: 10;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+  }
+
+  .journey-dot--filled {
+    background: #000000;
+  }
+
+  .journey-dot--hollow {
+    background: #ffffff;
+    border: 2px solid #000000;
+  }
+
+  .journey-dot--gradient {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0d182e 0%, #2f3c5e 100%);
+  }
+
+  .journey-dot--gradient::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ffffff;
+  }
+
+  .journey-line {
+    position: absolute;
+    left: 7px;
+    width: 3px;
+    border-radius: 2px;
+    background: #000000;
+  }
+
+  .journey-steps {
+    position: relative;
+    height: 860px;
+    margin-left: 30px;
+  }
+
+  /* The journey step row ends at a fixed x369 (183px text + 32px gap + 122px
+     phone starting at x32), so below ~369px viewports the phone mockup pushed a
+     page-level horizontal scrollbar. Clip it at the section edge instead —
+     nothing changes at the 402px design width or wider (row ends at x369). */
+  .usecase {
+    overflow-x: clip;
+  }
+
+  .journey-step {
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .journey-step__text {
+    flex: 0 0 183px;
+    width: 183px;
+    min-width: 0;
+  }
+
+  .journey-step__title {
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    color: #1e1e1e;
+  }
+
+  .journey-step__desc {
+    margin-top: 8px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    line-height: 22px;
+    color: #1e1e1e;
+  }
+
+  .journey-step__phone {
+    width: 122px;
+    height: auto;
+    flex-shrink: 0;
+    object-fit: contain;
+    margin-top: -1px;
+  }
+
+  /* ---- Research / ResearchStats ---- */
+  .research {
+    padding: 32px 0;
+    background: var(--bg);
+  }
+
+  .research .section-title {
+    font-size: 28px;
+  }
+
+  .research__card {
+    margin-top: 24px;
+    padding: 24px 20px;
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: -4px 4px 42px rgba(179, 179, 179, 0.24);
+  }
+
+  .research__grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .stat {
+    --stat-gap: 16px;
+    display: flex;
+    gap: var(--stat-gap);
+    min-height: auto;
+  }
+
+  .stat__rail {
+    position: relative;
+    flex: 0 0 2px;
+    height: auto;
+    background: #e0e0e0;
+  }
+
+  .stat__num {
+    font-family: "DM Sans", sans-serif;
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: 600;
+    color: #000000;
+  }
+
+  .stat__body {
+    margin-top: 16px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    line-height: 22px;
+    color: #4f4f4f;
+  }
+
+  .stat__source {
+    margin-top: 20px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: #6b6b76;
+  }
+
+  .stat__link {
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: #6b6b76;
+    margin-top: 8px;
+  }
+
+  /* ---- Interviews / CandidateVoices ---- */
+  .interviews {
+    padding: 58px 0;
+    background: var(--bg);
+  }
+
+  .interviews .container {
+    padding: 0 20px;
+  }
+
+  .badge-row--left {
+    text-align: left;
+  }
+
+  .interviews .section-title {
+    text-align: left;
+  }
+
+  .interviews__sub {
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--ink);
+    margin-top: 16px;
+  }
+
+  .quote-cards {
+    margin-top: 24px;
+    gap: 20px;
+    max-width: 100%;
+  }
+
+  .quote-card {
+    --quote-gap: 16px;
+    display: flex;
+    gap: var(--quote-gap);
+    padding: 16px;
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: -4px 4px 42px rgba(179, 179, 179, 0.24);
+    align-items: stretch;
+  }
+
+  .quote-card__rail {
+    position: relative;
+    flex: 0 0 2px;
+    height: auto;
+    align-self: stretch;
+    background: #e0e0e0;
+  }
+
+  .quote-card__content {
+    flex: 1;
+    padding: 4px 0;
+  }
+
+  .quote-card__quote {
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    line-height: 22px;
+    color: #000000;
+  }
+
+  .quote-card__person {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .quote-card__avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1.5px solid #dde0e5;
+  }
+
+  .quote-card__name {
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: #000000;
+  }
+
+  /* ---- Story / FounderStory ---- */
+  .story {
+    padding: 50px 0;
+    background: #ffffff;
+  }
+
+  .story__grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "head"
+      "photo"
+      "text";
+    gap: 0;
+  }
+
+  .story .badge-row--left {
+    margin-bottom: 16px;
+  }
+
+  .story .section-title {
+    text-align: left;
+    margin-bottom: 0;
+    max-width: 316px;
+  }
+
+  .story__photo {
+    width: 276px;
+    height: 253px;
+    margin: 0 auto 24px;
+    border-radius: 17px;
+    object-fit: cover;
+  }
+
+  .story__text {
+    margin-top: 32px;
+  }
+
+  .story__text p {
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--ink);
+  }
+
+  .story__text p + p {
+    margin-top: 20px;
+  }
+
+  /* ---- Behind / BuildProcess ---- */
+  .behind {
+    padding: 68px 0;
+    background: var(--bg);
+  }
+
+  .behind .badge-row--left {
+    text-align: left;
+  }
+
+  .behind .section-title {
+    text-align: left;
+    font-size: 28px;
+    line-height: 36px;
+    margin-top: 8px;
+  }
+
+  .behind__sub {
+    margin-top: 8px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: #1e1e1e;
+  }
+
+  .steps-card {
+    margin-top: 24px;
+    max-width: 100%;
+    border-radius: 24px;
+    background: #ffffff;
+    box-shadow: -4px 4px 42px rgba(179, 179, 179, 0.24);
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .step {
+    display: flex;
+    gap: 12px;
+    padding: 20px;
+    align-items: flex-start;
+  }
+
+  .step + .step {
+    border-top: 1px solid #cccccc;
+  }
+
+  .step__num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #05081b;
+    color: #ffffff;
+    border-radius: 100;
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 0;
+  }
+
+  .step__title {
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 600;
+    color: #000000;
+  }
+
+  .step__text {
+    max-width: 100%;
+    margin-top: 8px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--ink);
+  }
+
+  /* ---- FitCheck / FitTable ---- */
+  .fit {
+    /* 32px total below the card: the table scroller contributes its own 12px
+       scrollbar gutter, so this bottom padding is 20px. */
+    padding: 32px 0 20px;
+    background: #ffffff;
+  }
+
+  .fit .container {
+    padding: 0 20px;
+  }
+
+  .fit .badge-row {
+    text-align: center;
+  }
+
+  /* Zeplin mobile table (402px artboard): the left column is a fixed 212px and
+     the right column stretches to the remaining 186px, so the design's 398px
+     content area runs x20 → x418 and is cut off by the frame at x402. Spec: the
+     right column must be as wide as the left — both are the design's 212px, i.e.
+     424px of cells + 1px card borders = 426px, wider than the 362px content box
+     at 402px. The card therefore lives in its own horizontal scroller instead of
+     being clipped, so the full table can be swiped/dragged left and right. */
+  .fit__scroller {
+    /* Pull the scroller 1px into the gutter so the card's border-box starts at
+       the design's x19 (and its cell content at x20). */
+    margin-left: -1px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    /* Scrollbar gutter: keeps the scrollbar off the card (see .fit padding). */
+    padding-bottom: 12px;
+    scrollbar-width: thin;
+    scrollbar-color: #cccccc transparent;
+  }
+
+  .fit__scroller::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .fit__scroller::-webkit-scrollbar-thumb {
+    background: #cccccc;
+    border-radius: 999px;
+  }
+
+  .fit__card {
+    /* min-width = 2×212px columns + 1px borders: below ~465px viewports the card
+       overflows its scroller (426px vs 363px at the 402px design width) and
+       scrolls; wider viewports simply fill the content box. The inherited
+       `1fr 1fr` row tracks therefore resolve to exactly 212px/212px at 402px and
+       stay equal at every width. */
+    min-width: 426px;
+    margin: 24px 0 0;
+    border-radius: 24px;
+    border: 1px solid #cccccc;
+    box-shadow: none;
+  }
+
+  .fit__head {
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px !important;
+    line-height: 24px !important;
+    font-weight: 600 !important;
+    color: #000000 !important;
+    gap: 12px !important;
+    padding: 16px !important;
+    border-bottom: none;
+  }
+
+  .fit__cell {
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .fit__icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* ---- Offer / OfferCard ---- */
+  .offer {
+    padding: 24px 0;
+    background: var(--bg);
+  }
+
+  .offer__card {
+    padding: 16px 20px 52px;
+    border-radius: 16px;
+    box-shadow: -4px 4px 42px rgba(179, 179, 179, 0.24);
+    text-align: center;
+  }
+
+  /* Title sized to the Figma offer card (30px at the 473px design frame → 24px
+     at the 390px reference width): wraps to 4 lines there, so the 2-line
+     heading policy does NOT apply to this heading */
+  .offer__card .section-title {
+    margin-top: 4px;
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .offer__sub {
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: #1e1e1e;
+    margin-top: 16px;
+  }
+
+  .cta-pill--offer {
+    display: inline-flex;
+    height: 48px;
+    margin-top: 31px;
+    padding: 0 16px;
+    font-size: 14px;
+    width: 100%;
+    justify-content: center;
+    background: #000000;
+  }
+
+  .cta-pill__avatar--offer {
+    width: 25px;
+    height: 25px;
+  }
+
+  .offer__card .cta-btn {
+    margin-top: 24px;
+  }
+
+  /* ---- Footer (Zeplin "FOOTER" group: 402 x 355) ---- */
+  .footer {
+    border-radius: 0;
+  }
+
+  /* Content area — 402 x 323, 24px 20px padding, single column, 24px gap */
+  .footer__main {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    min-height: 0;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  /* Brand column — full width, 16px between the mark block and the tagline */
+  .footer__brand {
+    gap: 16px;
+    max-width: 100%;
+  }
+
+  .footer__logo {
+    width: 46px;
+    height: 46px;
+  }
+
+  .footer__name {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .footer__tagline {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  /* Contact column — no offset on mobile, 8px rhythm (width is content-driven again:
+     phones are a single column, so nothing can drag the block sideways) */
+  .footer__contact {
+    gap: 8px;
+    margin-top: 0;
+    min-width: 0;
+  }
+
+  .footer__contact h3 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .footer__row {
+    gap: 4px;
+    /* same optical centring as desktop (Zeplin's mobile row bottoms the icon) */
+    align-items: center;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .footer__row--linkedin {
+    align-items: center;
+    gap: 4px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .footer__icon,
+  .footer__arrow {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Copyright bar — 402 x 32: 8px 20px padding, 10px/16 SemiBold text */
+  .footer__bar {
+    gap: 8px;
+    padding: 8px 20px;
+    font-size: 10px;
+    line-height: 16px;
+    font-weight: 600;
+  }
+}
+
+/* ---------- Very small screens (≤ 400px): keep hero funnel inside viewport ---------- */
+@media (max-width: 400px) {
+  .funnel-card {
+    padding: 32px 16px;
+  }
+}
+
+/* ---------- Heading policy: bold headings wrap to max 2 lines on tablet/desktop ---------- */
+@media (min-width: 769px) {
+  /* Questions title: the design size is 28px/36 (Zeplin: DMSans-SemiBold 28/36) inside a
+     648px column, where it wraps to 2 lines. Below the 1440px reference width the column
+     narrows (648 * (W - 241) / 1199), so the font scales down with it just enough to keep
+     the heading on 2 lines — the cap restores the exact 28px design size from 1440 up
+     (see the min-width: 1440px block below). */
+  .questions__title {
+    font-size: min(28px, calc(2.34vw - 6.2px));
+  }
+
+  /* Offer card: keep the inner content ~696px wide as in the Figma design instead of
+     collapsing to 0px at mid widths; the 324px side padding only applies on wide screens */
+  .offer__card {
+    padding: 50px max(24px, calc((100% - 696px) / 2));
+  }
+
+  .offer__card .section-title {
+    font-size: min(36px, calc(5.1vw - 12px));
+  }
+}
+
+/* Questions title: exact 28px/36 design size from the 1440px reference width up. This
+   block must stay AFTER the min-width: 769px one so it wins at equal specificity. */
+@media (min-width: 1440px) {
+  .questions__title {
+    font-size: 28px;
+  }
+}
+
+/* Narrow desktop / tablet landscape: only the titles whose COLUMN is too narrow
+   for the 36px design size dip — and only as little as needed to stay on 2 lines.
+   Formulas come from measuring, at every width, the largest font that still fits
+   2 lines (see max-fit.js), minus ~1px of safety. Every other section title keeps
+   the full 36px design size throughout this band. */
+@media (min-width: 769px) and (max-width: 899px) {
+  /* "A Career Page That Turns More Qualified Candidates Into Interviews" */
+  .showcase .section-title {
+    font-size: min(36px, calc(5.73vw - 10.2px));
+  }
+
+  /* "A High Conversion Career Page Changes Who Applies" (narrowest column) */
+  .testimonial .section-title {
+    font-size: min(36px, calc(7.67vw - 28.9px));
+  }
+
+  /* "Why Most Companies Lose Qualified Candidates Before They Apply" */
+  .research .section-title {
+    font-size: min(36px, calc(5.69vw - 10.1px));
+  }
+
+  /* "Why Chaakre Was Built to Solve This Problem" */
+  .story .section-title {
+    font-size: min(36px, calc(5.52vw - 9.8px));
+  }
+}
+
+/* Journey columns: equal thirds on narrow desktop so the third column
+   (1fr leftover) is wide enough for its 2-line heading */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .usecase__cols {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .usecase__col h4 {
+    font-size: 18px;
+  }
+}
+
+/* Between 1181px and the Figma reference width (1440px) the third journey column
+   is proportionally narrower than 267px, so the h4 dips just enough to stay 2 lines */
+@media (min-width: 1181px) and (max-width: 1439px) {
+  .usecase__col h4 {
+    font-size: min(28px, calc(2.4vw - 5.6px));
+  }
+}
+
+/* Very narrow phones: tighten the journey text/phone gap so the step titles
+   stay within 2 lines */
+@media (max-width: 500px) {
+  .journey-step {
+    gap: 14px;
+  }
+}
+
+/* ---------- Heading policy: bold headings wrap to max 2 lines on phones ----------
+   At the design's phone sizes a few long bold headings wrap to 3 lines below
+   ~460px. Each rule below scales down ONLY that one heading's font size, fluidly,
+   just enough to keep it on 2 lines. The min() cap restores the exact design size
+   as soon as the design size fits again, so every heading above those widths (and
+   the whole tablet/desktop range) is untouched.
+
+   Coefficients are calibrated against the NARROWEST column case: a desktop
+   browser showing a classic scrollbar eats ~15px of content width (e.g. the
+   showcase title's column is 328px at a 375px viewport instead of 343px). A wider
+   column can never add a line, so fitting this worst case also covers overlay
+   scrollbars (mobile) and scrollbar-free rendering. */
+@media (max-width: 470px) {
+  /* "Make Top Candidates Believe Your Company Is Worth Applying To" —
+     mobile design size is 28px (Zeplin); scale down only to stay on 2 lines */
+  .hero__title {
+    font-size: min(28px, calc(8.534vw - 4.01px));
+  }
+
+  /* "A Career Page That Turns More Qualified Candidates Into Advocates" */
+  .showcase .section-title {
+    font-size: min(28px, calc(8.019vw - 3.77px));
+  }
+
+  /* "A High Conversion Career Page Changes Who Applies" sits in the testimonial
+     (narrower) column, so on phones it fits at the full 28px design size; this
+     rule must follow the .showcase one so it wins at equal specificity */
+  .testimonial .section-title {
+    font-size: min(28px, calc(10.725vw - 5.04px));
+  }
+
+  /* "Why Most Companies Lose Qualified Candidates Before They Apply" —
+     the Zeplin mobile design keeps the full 28px/36px size (3 lines),
+     so this heading is intentionally NOT part of the 2-line policy. */
+
+  /* NOTE: the offer card title follows the mobile Zeplin design (28px/36px,
+     multi-line card heading), styled in the ≤768px block above. */
+
+  /* "Understand What Your Best Candidates Need to Believe" */
+  .behind .step__title {
+    font-size: min(16px, calc(7.535vw - 10.87px));
+  }
+}
+
+/* "What We Build Behind the Career Page" is the shortest phone title: it only
+   overflows below 310px, where it dips by well under 2px */
+@media (max-width: 309px) {
+  /* "What We Build Behind the Career Page" keeps the full 28px/36px Zeplin
+     mobile size (3 lines allowed), so it is NOT part of the 2-line policy. */
+}
+
+/* Journey step headings sit beside a fixed-width phone image, so they need the
+   tightest fit at the very small widths (phone design size is 15px below 400px) */
+@media (max-width: 400px) {
+  .journey-step__title {
+    font-size: min(15px, calc(10.074vw - 22.96px));
+  }
+}
